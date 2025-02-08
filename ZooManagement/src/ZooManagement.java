@@ -6,7 +6,7 @@ public class ZooManagement
 
     public static void main (String [] args)
     {
-
+/*
         //1ère méthode
         String zooName;
         int nbrCages;
@@ -19,12 +19,7 @@ public class ZooManagement
         System.out.println("Entrez le nom du zoo : ");
         zooName = sc.nextLine();
 
-        //System.out.println("Entrez x : ");
-        // int x = sc.nextInt();
 
-        // Demander à l'utilisateur le nombre de cages
-        //System.out.println("Entrez le nombre de cages : ");
-        //String nbrCages = sc.nextLine();
 
         nbrCages = 0;
         while (true)
@@ -51,6 +46,64 @@ public class ZooManagement
 
         System.out.println(zooName + " comporte " + nbrCages + " cages");
         sc.close(); // Fermer l'objet Scanner pour libérer les ressources
+*/
+
+
+        //Instruction 5 :
+        /*
+        Animal A1 = new Animal();
+        A1.name="hero";
+        A1.age=25;
+        A1.family="Lion";
+        A1.isMammal=true;
+
+        System.out.println(A1.name);
+        System.out.println(A1.age);
+        System.out.println(A1.family);
+        System.out.println(A1.isMammal);
+        */
+
+        //Instruction 6 :
+        Animal A1 = new Animal("Lion","Hero",25,false);
+
+        System.out.println(A1.name);
+        System.out.println(A1.age);
+        System.out.println(A1.family);
+        System.out.println(A1.isMammal);
+
+        Zoo Z1 = new Zoo("Belvédère","Tunis",10);
+
+        System.out.println(Z1.name);
+        System.out.println(Z1.city);
+        System.out.println(Z1.nbrCages);
+
+        for( int i = 0 ; i < Z1.nbrCages;i++)
+        {
+            //instruction 7 :
+            Z1.animals[i] = new Animal("x","y",12,true);
+            //Z1.animals[i] = A1;
+            System.out.println(Z1.animals[i].name);
+        }
+
+
+        //instruction 8:
+        System.out.println("instruction 8 sans présence de la méthode to_string");
+        System.out.println("------------------------------------------------------------------------");
+        System.out.println(Z1);
+        System.out.println("------------------------------------------------------------------------");
+        System.out.println(Z1.toString());
+        System.out.println("------------------------------------------------------------------------");
+        //instruction 9:
+        System.out.println("instruction 8 avec présence de la méthode to_string");
+        System.out.println("------------------------------------------------------------------------");
+        System.out.println(A1);
+        System.out.println("------------------------------------------------------------------------");
+        System.out.println(A1.toString());
+        System.out.println("------------------------------------------------------------------------");
+
+
+
+
 
     }
 }

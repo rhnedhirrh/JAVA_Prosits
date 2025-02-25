@@ -5,6 +5,9 @@ public class Zoo {
     private String name;
     private String city;
     private final int NBR_CAGES = 25;
+    private int nbaquaticAnimals=10;
+    Aquatic[] aquaticAnimals = new Aquatic[nbaquaticAnimals];
+
 
     public Zoo(){}
     public Zoo(String name,String city){
@@ -96,5 +99,55 @@ public class Zoo {
         else{
             return null;
         }
+
+
+    }
+    // Instruction 26 : Ajouter un animal aquatique
+    public void addAquaticAnimal(Aquatic aquatic) {
+        if (nbaquaticAnimals < 10) {
+            aquaticAnimals[nbaquaticAnimals] = aquatic;
+            nbaquaticAnimals++;
+        }
+    }
+
+    // Instruction 27 : Afficher swim() de tous les animaux aquatiques
+    public void displayAllSwimming() {
+        for (int i = 0; i < nbaquaticAnimals; i++) {
+            aquaticAnimals[i].swim();
+        }
+    }
+
+    // Instruction 29 : Profondeur maximale des pingouins
+    public float maxPenguinSwimmingDepth() {
+        float maxDepth = 0;
+        boolean hasPenguins = false;
+
+        for (int i = 0; i < nbaquaticAnimals; i++) {
+            if (aquaticAnimals[i] instanceof Penguin) {
+                Penguin penguin = (Penguin) aquaticAnimals[i];
+                if (!hasPenguins || penguin.getSwimmingDepth() > maxDepth) {
+                    maxDepth = penguin.getSwimmingDepth();
+                    hasPenguins = true;
+                }
+            }
+        }
+        return hasPenguins ? maxDepth : -1; // -1 si aucun pingouin
+    }
+
+    // Instruction 30 : Nombre d'animaux par type
+    public void displayNumberOfAquaticsByType() {
+        int dolphinCount = 0;
+        int penguinCount = 0;
+
+        for (int i = 0; i < nbaquaticAnimals; i++) {
+            if (aquaticAnimals[i] instanceof Dolphin) {
+                dolphinCount++;
+            } else if (aquaticAnimals[i] instanceof Penguin) {
+                penguinCount++;
+            }
+        }
+
+        System.out.println("Number of Dolphins: " + dolphinCount);
+        System.out.println("Number of Penguins: " + penguinCount);
     }
 }
